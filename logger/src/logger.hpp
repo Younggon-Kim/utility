@@ -21,7 +21,9 @@
 #include <memory>
 #include <string>
 #include <vector>
+#ifdef DLT_ENABLED
 #include <dlt/dlt.h>
+#endif //DLT_ENABLED
 #include <cstring> //strrchr
 
 #include "singleton.hpp"
@@ -63,6 +65,7 @@ private:
     LogLevel defaultLevel_;
 };
 
+#ifdef DLT_ENABLED
 class DltLogger : public ILogger {
 public:
     DltLogger(const char* app_name, const char* context_name, const char* app_desc = "app_description", const char* context_desc = "context_description");
@@ -72,6 +75,7 @@ public:
 private:
     DltContext context_;
 };
+#endif //DLT_ENABLED
 
 class OutStrmLogger : public ILogger {
 public:

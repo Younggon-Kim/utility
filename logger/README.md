@@ -12,19 +12,19 @@ This project requires dependencies:
 - dlt-daemon
 
 ## Install Dependencies
-[dlt-daemon]
-### Install dependencies
+### dlt-daemon
+#### Install dependencies
 ```bash
 $ sudo apt-get install cmake zlib1g-dev libdbus-glib-1-dev
 ```
 
-### Download dlt-daemon source code
+#### Download dlt-daemon source code
 ```bash
 $ git clone https://github.com/GENIVI/dlt-daemon
 $ cd dlt-daemon
 ```
 
-### Build dlt-daemon
+#### Build dlt-daemon
 ```bash
 $ mkdir build
 $ cd build
@@ -42,6 +42,13 @@ $ mkdir build
 $ cd build
 $ cmake -DCMAKE_BUILD_TYPE=<debug|release> ..
 $ make -j$(nproc)
+```
+
+If you want to build with DLT, then pass -DDLT_ENABLED when you execute cmake
+
+e.g. 
+```bash
+$ cmake .. -DDLT_ENABLED=TRUE
 ```
 
 ## Build options

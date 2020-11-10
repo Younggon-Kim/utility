@@ -70,6 +70,7 @@ void Logger::setLocale(int category) {
     std::setlocale(category, "");
 }
 
+#ifdef DLT_ENABLED
 DltLogger::DltLogger(const char* app_name, const char* app_desc, const char* context_name, const char* context_desc) {
     DLT_REGISTER_APP(app_name, app_desc);
     DLT_REGISTER_CONTEXT(context_, context_name, context_desc);
@@ -87,6 +88,7 @@ void DltLogger::out(LogLevel level, const char* str) {
 
     DLT_LOG(context_, type[(uint8_t)level], DLT_STRING(str));
 }
+#endif //DLT_ENABLED
 
 OutStrmLogger::OutStrmLogger() : out_(std::make_shared<std::ostream>(std::cout.rdbuf())) {}
 
