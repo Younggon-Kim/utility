@@ -9,11 +9,10 @@ enable_testing()
 find_package(GTest REQUIRED)
 
 # dependencies libpcap
-# include(FindPCAP.cmake)
 find_library(PCAP_LIBRARY NAMES pcap)
 
 # dependency DLT
-IF (DEFINED DLT_ENABLED)
+IF(${DLT_ENABLED} MATCHES "TRUE")
     ADD_DEFINITIONS(-DDLT_ENABLED)
     pkg_check_modules(DLT REQUIRED automotive-dlt)
     include_directories(${DLT_INCLUDE_DIRS})
@@ -33,7 +32,7 @@ set(LIBRARIES
     ${PCAP_LIBRARY}
 )
 # dependency DLT
-IF (DEFINED DLT_ENABLED)
+IF(${DLT_ENABLED} MATCHES "TRUE")
     set(LIBRARIES
         ${LIBRARIES}
         ${DLT_LDFLAGS}

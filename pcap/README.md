@@ -84,7 +84,7 @@ If you want to build with DLT, then pass -DDLT_ENABLED when you execute cmake
 
 e.g. 
 ```bash
-$ cmake .. -DDLT_ENABLED
+$ cmake .. -DDLT_ENABLED=TRUE
 ```
 
 ## Example instruction
